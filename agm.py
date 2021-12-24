@@ -6,7 +6,10 @@ from skimage import io
 import mylib
 from resize import IMAGE_SIZE
 
-mylib.copy_folders('Noisefree_224x224', 'augmented_224x224___reflect')
+direc = 'NoiseFree_Original'
+nextDir = 'NoiseFree_Original__augmented'
+
+mylib.copy_folders(direc, nextDir)
 # lib.resize_image('NoiseFree')
 
 datagen = ImageDataGenerator(
@@ -25,8 +28,7 @@ datagen = ImageDataGenerator(
 
 i = 0
 labels = {1, 2, 3}
-direc = 'Noisefree_224x224'
-nextDir = 'augmented_224x224___reflect'
+
 IMAGE_SIZE = (224, 224)
 
 for i, one_class in enumerate(os.listdir(direc)):
@@ -37,10 +39,10 @@ for i, one_class in enumerate(os.listdir(direc)):
                                              class_mode='binary',
                                              classes=[one_class],
                                              save_to_dir=f'{nextDir}/{one_class}',
-                                             save_prefix='mango',
+                                             save_prefix='emotion',
                                              shuffle=True,
                                              seed=42,
                                              save_format='jpg'):
         i += 1
-        if i > 128:
+        if i > 100:
             break

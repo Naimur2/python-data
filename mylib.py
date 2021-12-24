@@ -53,11 +53,11 @@ def resize_images(current_folder, destination_folder, imaze_size=(224, 224)):
             imresize.save(f + '.png', 'PNG', quality=90)
 
 
-def split_to(input_folder, output_path, train_percent=0.8, valid_percent=0.1):
+def split_to(input_folder, output_path, train_percent=0.8, valid_percent=0.1, test_percent=0.1):
     # if test_percent == 0:
     #     rat = (train_percent, valid_percent)
     # else:
-    rat = (train_percent, valid_percent)
+    rat = (train_percent, valid_percent, test_percent)
 
     create_dir(output_path)
     splitfolders.ratio(input_folder, output=output_path,
@@ -70,3 +70,15 @@ def split_to(input_folder, output_path, train_percent=0.8, valid_percent=0.1):
     splitfolders.fixed(input_folder, output=output_path,
                        seed=42, fixed=(35, 20),
                        oversample=False, group_prefix=None)
+
+
+def get_folders(currentfolder):
+
+    currentfolder = "./"+currentfolder
+
+    sub_folders = [name for name in os.listdir(
+        currentfolder) if os.path.isdir(os.path.join(currentfolder, name))]
+    folders = []
+    for x in sub_folders:
+        folders.append(x)
+    print(folders)

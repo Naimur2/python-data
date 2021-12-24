@@ -1,3 +1,15 @@
+__pycache__
+.vs
+.vscode
+Face
 images
 models
-.vs
+NoiseFree_Original
+NoiseFree_Original__augmented
+NoiseFree_Original__augmented_New_SPLIT
+NoiseFree_Original__augmented_SPLIT
+gt20__augmented_SPLIT.zip
+gt20__augmented.zip
+MangoDataSplitted.zip
+NoiseFree_Original__augmented_SPLIT.zip
+NoiseFree_Original.rar
